@@ -8,16 +8,28 @@ let rainbowMode = false;
 let shadeMode = false;
 reset.addEventListener("click", () => {
   createDrawingBoard();
-})
+});
 slider.oninput = function () {
   sizeText.textContent = `${slider.value}x${slider.value}`;
   createDrawingBoard();
 };
 rainbow.addEventListener("click", () => {
+  if (rainbowMode === true) {
+    rainbow.style.cssText = "background-color: white; color #8b8b8b;";
+  } else {
+    rainbow.style.cssText = "background-color: #8b8b8b; color: white";
+  }
+  shade.style.cssText = "background-color: whitel color #8b8b8b;";
   rainbowMode = !rainbowMode;
   shadeMode = false;
 });
 shade.addEventListener("click", () => {
+  if (shadeMode === true) {
+    shade.style.cssText = "background-color: white; color #8b8b8b;";
+  } else {
+    shade.style.cssText = "background-color: #8b8b8b; color: white";
+  }
+  rainbow.style.cssText = "background-color: whitel color #8b8b8b;";
   shadeMode = !shadeMode;
   rainbowMode = false;
 });
@@ -77,14 +89,16 @@ function applyColor(toPaint) {
     let shade = getComputedStyle(toPaint).backgroundColor;
     let newColor;
     // determine if color is currently black
-    if (shade === 'rgb(0, 0, 0)') {
-      newColor = 'rgb(0, 0, 0)';
-    // if color isn't black, make 10% black
-    } else if (shade === 'rgba(0, 0, 0, 0)' || shade.split('(') === 'rgb') {
-      newColor = 'rgba(0, 0, 0, 0.1)';
-    // logic to determine what shade of black to set it to
+    if (shade === "rgb(0, 0, 0)") {
+      newColor = "rgb(0, 0, 0)";
+      // if color isn't black, make 10% black
+    } else if (shade.split("(")[0] === "rgb") {
+      newColor = "rgba(0, 0, 0, 0.1)";
+    } else if (shade === "rgba(0, 0, 0, 0)") {
+      newColor = "rgba(0, 0, 0, 0.1)";
+      // logic to determine what shade of black to set it to
     } else {
-      let oldShade = shade.split(',')[3].slice(0, -1);
+      let oldShade = shade.split(",")[3].slice(0, -1);
       let newShade = (parseFloat(oldShade) + parseFloat(0.1)).toFixed(1);
       newColor = `rgba(0, 0, 0, ${newShade})`;
     }
