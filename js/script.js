@@ -51,7 +51,7 @@ function paintable() {
   const paintItem = document.querySelectorAll(".grid-item");
   for (let i = 0; i < paintItem.length; i++) {
     // make it so clicking paints the pixel
-    paintItem[i].addEventListener("click", () => {
+    paintItem[i].addEventListener("touchstart", () => {
       applyColor(paintItem[i]);
     });
     // also makes it possible to click and drag
