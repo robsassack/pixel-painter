@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    border: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.drawing-board {
+    display: flex;
+    border: 5px solid black;
+    height: 400px;
+    width: 400px;
+}
+
+
+.drawing-board .grid-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.drawing-board .grid-item {
+    flex: 1;
+}
+
+.drawing-board .painted {
+    background-color: black;
+}
