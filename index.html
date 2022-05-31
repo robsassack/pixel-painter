@@ -10,8 +10,13 @@
 <body>
     <div class="content">
         <div class="options">
-            <input type="range" min="1" max="100" value="16" class="slider">
-            <p class="size-text">16x16</p>
+            <div class="size-slider-container">
+                <input type="range" min="1" max="100" value="16" class="slider">
+                <p class="size-text">16x16</p>
+            </div>
+            <button type="button" class="rainbow">Rainbow Mode</button>
+            <button type="button" class="shade">Shade Mode</button>
+            <button type="button" class="reset">Reset</button>
         </div>
         <div class="drawing-board"></div>
     </div>
