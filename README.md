@@ -1,4 +1,4 @@
-# pixel-painter
+# Pixel Painter
 
 A basic pixel painting app.
 
